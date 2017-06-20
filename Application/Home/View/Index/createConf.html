@@ -1,0 +1,48 @@
+<include file="Public/header" />
+<title>创建配置文件</title>
+
+<block name="main">
+    <div class="container-fluid">
+
+
+        <div class="conent col-md-offset-3 col-md-6 ">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>输入要创建文件的名字</h3></div>
+                <div class="panel-body">
+                    <form action="{:U('Index/createConf')}" method="post">
+
+                        <div class="form-group">
+                            <label for="exampleInputName">文件名称</label>
+                            <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="请输入配置文件名称">
+                            <button style="margin-top: 5px" type="submit" id="submit" class="btn btn-success">走你</button>
+                        </div>
+                    </form>
+
+
+                    <button type="button" class="btn btn-primary">
+                        <a href="{:U('Index/index')}">点击返回首页</a>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+
+        $('#submit').click(function () {
+            var bool = true;
+
+                if( $('#exampleInputName').val() == "") {
+                    layer.msg('写个名字呀,你是不是傻');
+                    return false;
+                }
+            return bool;
+        })
+    </script>
+
+</block>

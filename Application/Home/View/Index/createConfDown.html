@@ -1,0 +1,36 @@
+<include file="Public/header" />
+
+<title>服务器配置文件下载</title>
+
+<block name="main">
+
+    <div class="container-fluid">
+
+        <div class="conent col-md-offset-3 col-md-6 ">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>下载配置文件</h3></div>
+                <div class="panel-body">
+                    <h4>若没有自动下载请点击下载</h4>
+                    <button type="button" class="btn btn-success">
+                        <a href="{$filePath}">下载</a>
+                    </button>
+
+                    <button type="button" class="btn btn-primary">
+                        <a href="{:U('Index/index')}">点击返回首页</a>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(window).attr('location','{$filePath}');
+    </script>
+
+
+</block>
+
+
+
