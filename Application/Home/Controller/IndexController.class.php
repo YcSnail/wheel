@@ -7,6 +7,10 @@ class IndexController extends Controller {
         $this->display();
     }
 
+    /**
+     * 创建conf
+     *
+     */
     public function createConf(){
 
         if (!empty($_POST)){
@@ -51,14 +55,81 @@ class IndexController extends Controller {
         $this->display();
     }
 
+    /**
+     * 创建sql 配置文件
+     *
+     */
+    public function createMysql(){
+
+
+        if (!empty($_POST)){
+
+            if (empty($_POST['host']) || empty($_POST['name'] ) || empty($_POST['pwd'] )|| empty($_POST['base'] )){
+                echo '输入的参数不完整';
+                die();
+            }
+
+            $file =  file_get_contents(YC_COMMON.'conf/config.php');
+
+            $array = array(
+                'changeHost',
+                'changeName',
+                'changePwd',
+                'changeBase',
+                'changeAuthkey'
+            );
+
+            $authkey = $this->get_password(8);
+
+            $cheArr = array(
+                $_POST['host'],
+                $_POST['name'],
+                $_POST['pwd'],
+                $_POST['base'],
+                $authkey,
+            );
+            $SavePath = YC_COMMON.'newFile/mysql/config.php';
+
+            $saveFile = str_replace($array,$cheArr,$file);
+            $Res = file_put_contents($SavePath,$saveFile);
+
+            if (empty($Res)){
+                echo '创建失败.ZZ';
+                die();
+            }
+
+            $http = 'http://';
+            $http .= $_SERVER['HTTP_HOST']. $SavePath;
+
+            $array = array(
+                'filePath'=> $http
+            );
+
+            $this->assign($array);
+            $this->display('createConfDown');
+            die();
+        }
+
+        $this->display();
+    }
+
+    public function get_password( $length = 16 ) {
+        $str = substr(md5(time()), 0, $length);
+        return $str;
+    }
+
+
+    /**
+     * 修改微擎代码
+     *
+     */
     public function changePass(){
 
         if (!empty($_POST)){
 
             if (empty($_POST['pass']) || empty($_POST['salt']) || empty($_POST['authkey']) ){
-
-
-                echo ("参数不全,<br>index.php?pass=&salt=&authkey=");
+                echo ('输入的参数不完整');
+                die();
             }
 
             $pass = $_POST['pass'];
