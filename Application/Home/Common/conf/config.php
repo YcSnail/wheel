@@ -3,10 +3,10 @@ defined('IN_IA') or exit('Access Denied');
 
 $config = array();
 
-$config['db']['master']['host'] = '';
-$config['db']['master']['username'] = '';
-$config['db']['master']['password'] = '';
-$config['db']['master']['database'] = '';
+$config['db']['master']['host'] = 'changeHost';
+$config['db']['master']['username'] = 'changeName';
+$config['db']['master']['password'] = 'changePwd';
+$config['db']['master']['database'] = 'changeBase';
 
 $config['db']['master']['port'] = '3306';
 $config['db']['master']['charset'] = 'utf8';
@@ -37,7 +37,7 @@ $config['setting']['cache'] = 'mysql';
 $config['setting']['timezone'] = 'Asia/Shanghai';
 $config['setting']['memory_limit'] = '256M';
 $config['setting']['filemode'] = 0644;
-$config['setting']['authkey'] = '';
+$config['setting']['authkey'] = 'changeAuthkey';
 $config['setting']['founder'] = '1';
 $config['setting']['development'] = 0;
 $config['setting']['referrer'] = 0;
