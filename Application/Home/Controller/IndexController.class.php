@@ -88,7 +88,7 @@ class IndexController extends Controller {
                 $_POST['base'],
                 $authkey,
             );
-            $SavePath = YC_COMMON.'newFile/mysql/config.php';
+            $SavePath = YC_COMMON.'newFile/mysql/config.php.bak';
 
             $saveFile = str_replace($array,$cheArr,$file);
             $Res = file_put_contents($SavePath,$saveFile);
