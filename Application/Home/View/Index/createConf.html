@@ -38,7 +38,8 @@
             var bool = true;
 
                 if( $('#exampleInputName').val() == "") {
-                    layer.msg('写个名字呀,你是不是傻');
+                    show('填写完整的参数,你是不是傻');
+                    bool = false;
                     return false;
                 }
             return bool;
@@ -46,3 +47,4 @@
     </script>
 
 </block>
+<include file="Public/footer" />

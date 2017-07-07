@@ -1,0 +1,20 @@
+
+</body>
+
+<script>
+
+    function show(msg) {
+        layui.use(['layer', 'laypage', 'element'], function() {
+            var layer = layui.layer
+                , laypage = layui.laypage
+                , element = layui.element();
+
+            //向世界问个好
+            layer.msg(msg);
+        });
+        return false;
+    }
+
+</script>
+
+</html>

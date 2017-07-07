@@ -45,7 +45,7 @@
             var bool = true;
             $("input:text").each(function() {
                 if($.trim($(this).val()) == "") {
-                    layer.msg('填写完整的参数,你是不是傻');
+                    show('填写完整的参数,你是不是傻');
                     bool =  false;
                     return bool;
                 }
@@ -58,3 +58,4 @@
 
 
 </block>
+<include file="Public/footer" />
